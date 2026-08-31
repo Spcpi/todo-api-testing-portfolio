@@ -1,0 +1,61 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.11, pytest-8.4.2, pluggy-1.6.0 -- C:\Users\Lenovo\Documents\GitHub\todo-api-testing-portfolio\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\Lenovo\Documents\GitHub\todo-api-testing-portfolio
+configfile: pytest.ini
+plugins: anyio-4.14.2, cov-6.3.0
+collecting ... collected 34 items
+
+tests/test_api.py::TestCreateTodo::test_create_valid PASSED              [  2%]
+tests/test_api.py::TestCreateTodo::test_title_at_max_length PASSED       [  5%]
+tests/test_api.py::TestCreateTodo::test_title_too_long PASSED            [  8%]
+tests/test_api.py::TestCreateTodo::test_missing_title PASSED             [ 11%]
+tests/test_api.py::TestCreateTodo::test_priority_out_of_range[0] PASSED  [ 14%]
+tests/test_api.py::TestCreateTodo::test_priority_out_of_range[6] PASSED  [ 17%]
+tests/test_api.py::TestCreateTodo::test_priority_defaults_to_one PASSED  [ 20%]
+tests/test_api.py::TestListTodos::test_list_empty PASSED                 [ 23%]
+tests/test_api.py::TestListTodos::test_list_contains_created PASSED      [ 26%]
+tests/test_api.py::TestListTodos::test_pagination_page1 PASSED           [ 29%]
+tests/test_api.py::TestListTodos::test_pagination_page2 PASSED           [ 32%]
+tests/test_api.py::TestListTodos::test_pagination_invalid_params[params0] PASSED [ 35%]
+tests/test_api.py::TestListTodos::test_pagination_invalid_params[params1] PASSED [ 38%]
+tests/test_api.py::TestListTodos::test_pagination_invalid_params[params2] PASSED [ 41%]
+tests/test_api.py::TestGetTodo::test_get_existing PASSED                 [ 44%]
+tests/test_api.py::TestGetTodo::test_get_unknown_404 PASSED              [ 47%]
+tests/test_api.py::TestGetTodo::test_get_non_numeric_422 PASSED          [ 50%]
+tests/test_api.py::TestPatchTodo::test_mark_done PASSED                  [ 52%]
+tests/test_api.py::TestPatchTodo::test_rename PASSED                     [ 55%]
+tests/test_api.py::TestPatchTodo::test_partial_update_keeps_other_fields PASSED [ 58%]
+tests/test_api.py::TestPatchTodo::test_patch_unknown_404 PASSED          [ 61%]
+tests/test_api.py::TestPatchTodo::test_patch_invalid_priority PASSED     [ 64%]
+tests/test_api.py::TestDeleteTodo::test_delete_existing PASSED           [ 67%]
+tests/test_api.py::TestDeleteTodo::test_delete_unknown_404 PASSED        [ 70%]
+tests/test_api.py::TestDeleteTodo::test_delete_twice PASSED              [ 73%]
+tests/test_api.py::TestStats::test_stats_mixed PASSED                    [ 76%]
+tests/test_api.py::TestStats::test_stats_empty PASSED                    [ 79%]
+tests/test_api.py::TestStats::test_stats_all_done PASSED                 [ 82%]
+tests/test_unit_storage.py::TestStorePagination::test_page1_returns_first_five PASSED [ 85%]
+tests/test_unit_storage.py::TestStorePagination::test_page2_returns_next_two PASSED [ 88%]
+tests/test_unit_storage.py::TestStorePagination::test_total_counts_every_todo PASSED [ 91%]
+tests/test_unit_storage.py::TestStoreStats::test_completion_rate_is_precise PASSED [ 94%]
+tests/test_unit_storage.py::TestStoreStats::test_stats_on_empty_store PASSED [ 97%]
+tests/test_unit_storage.py::TestStoreStats::test_stats_all_done PASSED   [100%]
+
+============================== warnings summary ===============================
+.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\Lenovo\Documents\GitHub\todo-api-testing-portfolio\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=============================== tests coverage ================================
+______________ coverage: platform win32, python 3.13.11-final-0 _______________
+
+Name              Stmts   Miss  Cover   Missing
+-----------------------------------------------
+app\__init__.py       0      0   100%
+app\main.py          36      1    97%   18
+app\models.py        27      0   100%
+app\storage.py       38      0   100%
+-----------------------------------------------
+TOTAL               101      1    99%
+======================== 34 passed, 1 warning in 0.37s ========================
